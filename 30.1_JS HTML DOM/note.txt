@@ -1,0 +1,30 @@
+1. Find/ Get :
+Methods:
+document.getElementById()
+document.getElementsByTagName()
+document.getElementsByClassName()
+document.querySelector()
+
+
+2.Change HTML Element:
+
+element.innerHTML =  new html content ->	Change the inner HTML of an element
+element.textContent -> The text content of an element
+element.attribute = new value 	-> Change the attribute value of an HTML element
+element.style.property = new style ->	Change the style of an HTML element
+element.setAttribute() ->	Create or set a new attribute
+
+
+
+
+3.Manipulating Structure:
+document.createElement() ->	Creates a new HTML element
+document.createTextNode()
+document.removeChild(newChild, oldChild) ->   Remove an HTML element
+document.appendChild() ->    Add an HTML element
+document.replaceChild()- >  Replace an HTML element
+
+
+
+
+4. Create an HTML Element with insertBefore(before, after)

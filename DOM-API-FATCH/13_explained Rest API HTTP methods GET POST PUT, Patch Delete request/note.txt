@@ -1,0 +1,72 @@
+JavaScript REST API HTTP Methods Note
+
+REST API মূলত Client (Browser) এবং Server-এর মধ্যে যোগাযোগের মাধ্যম। এর প্রধান ৪টি মেথড নিচে সুন্দরভাবে সাজিয়ে দেওয়া হলো, সহজ কথায় বললে, এটি আপনার ডেটাবেসের সাথে কথা বলার উপায় (যাকে সংক্ষেপে CRUD operation বলা হয়).
+CRUD -> Create Read Update Delete.
+
+১. GET (ডেটা দেখা বা পড়া)
+
+  - কাজ: সার্ভার থেকে কোনো ডেটা নিয়ে আসা।
+  - ব্যবহার: কোনো কিছুর লিস্ট দেখা বা প্রোফাইল লোড করা।
+  - CRUD: Read.
+
+  fetch('https://api.example.com/users')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+
+
+২. POST (নতুন কিছু তৈরি করা)
+
+  - কাজ: সার্ভারে নতুন কোনো ডেটা পাঠানো।
+  - ব্যবহার: নতুন অ্যাকাউন্ট খোলা, নতুন পোস্ট দেওয়া বা ফর্ম জমা দেওয়া।
+  - CRUD: Create.
+Example:
+  fetch('https://api.example.com/users', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Rohim', email: 'rohim@mail.com' })
+})
+.then(response => response.json())
+.then(data => console.log('Success:', data));
+
+
+
+
+৩. PUT & PATCH (পরিবর্তন করা)
+
+  - PUT: কোনো ডেটা সম্পূর্ণভাবে নতুন করে সেট করা (Full Update)।
+  - PATCH: কোনো ডেটার একটি নির্দিষ্ট অংশ পরিবর্তন করা (Partial Update)।
+  - CRUD: Update.
+
+  // PATCH এর উদাহরণ (শুধুমাত্র ইমেইল পরিবর্তন)
+fetch('https://api.example.com/users/1', {
+  method: 'PATCH',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: 'new-email@mail.com' })
+});
+
+
+
+
+৪. DELETE (মুছে ফেলা)
+
+  - কাজ: সার্ভার থেকে কোনো নির্দিষ্ট ডেটা রিমুভ করা।
+  - ব্যবহার: কোনো পোস্ট বা মেসেজ ডিলিট করা।
+  - CRUD: Delete.
+
+  fetch('https://api.example.com/users/1', {
+  method: 'DELETE'
+})
+.then(response => console.log('Deleted successfully'));
+
+
+
+
+
+Summary Table:
+REST API methods
+
+  - GET: Read -> API or database theke data pawake GET request bole.
+  - POST: Create -> API or database e data rakhar jonno POST request kora hoi.
+  - PUT/PATCH: Update -> Kono Post krito data ke edit othoba update korar jonno PUT/PATCH Request korte hoi
+  - DELETE: Delete -> Kono post othoba kono data ke Delete korar jonno delete request korte hoi.

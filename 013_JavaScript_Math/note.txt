@@ -1,0 +1,44 @@
+JS Math Object Cheat Sheet
+1. Rounding Methods (পূর্ণসংখ্যায় রূপান্তর)
+
+• Math.round(x): সাধারণ নিয়ম (.5 হলে উপরে, নাহলে নিচে)।
+
+• Math.ceil(x): সবসময় উপরে (ছাদ)।
+
+• Math.floor(x): সবসময় নিচে (মেঝে)।
+
+2. Power & Root (পাওয়ার ও বর্গমূল)
+
+• Math.pow(base, exp): পাওয়ার বের করা (যেমন: `Math.pow(2,3)` = 8)।
+
+• Math.sqrt(x): বর্গমূল বা Square Root।
+
+3. Max, Min & Absolute
+
+• Math.abs(x): নেগেটিভ ভ্যালু পজিটিভ করে দেয়।
+
+• Math.max(a, b, c): সবচাইতে বড় সংখ্যা বের করে।
+
+• Math.min(a, b, c): সবচাইতে ছোট সংখ্যা বের করে।
+
+• Note: Array-র ক্ষেত্রে `Math.max(...arrayName)` ব্যবহার করা সহজ।
+
+4. Constants & Algebra
+
+• Math.PI: PI এর মান (3.14159...) দেয়।
+
+• Math.sin / cos: ত্রিকোণমিতিক মান বের করা।
+
+5. Random Number (লুডু লজিক)
+
+• Math.random(): 0 থেকে 1 এর মধ্যে দশমিক সংখ্যা দেয়।
+
+• লুডুর ছক্কা (1-6): `Math.floor(Math.random() * 6) + 1`
+
+মনে রাখার টিপস:
+
+• `ceil` = ছাদ (উপরে যাবে)
+
+• `floor` = মেঝে (নিচে নামবে)
+
+• `random` সবসময় 1 এর নিচে মান দেয়।

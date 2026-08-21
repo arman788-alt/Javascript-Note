@@ -1,0 +1,50 @@
+JavaScript Number - Beginner Guide
+1. Number Ki?
+
+JavaScript-e integer (পূর্ণসংখ্যা) ebong float (দশমিক সংখ্যা) - sob e Number type-er antorgoto.
+
+• `let x = 10;` (Integer)
+
+• `let y = 10.5;` (Float)
+
+2. Common Methods (খুবই দরকারি)
+
+• toString(): Number-ke string/lekhay rupantor kore.
+
+• toFixed(n): Doshomik-er por koiti ghor thakbe seta thik kore. (Note: Eta string return kore).
+
+  • `(5.678).toFixed(2)` -> `"5.68"`
+
+• Number(val): String-ke number-e rupantor kore.
+
+  • `Number("10")` -> `10`
+
+• parseInt(): Doshomik bad diye shudhu purno-sonkha ney.
+
+• parseFloat(): Doshomik-shoh sonkha ney.
+
+3. Special Values
+
+• NaN (Not a Number): Oboidho kono math korle eta ashe (Ex: `10 / "Hello"`).
+
+• Infinity: Kono kichuke 0 diye bhag korle ashe.
+
+4. Mathematical Operators
+
+• `+` (Jog), `-` (Biyog), `*` (Gun), `/` (Bhag)
+
+• `%` (Modulus/Vagshesh): `10 % 3` -> `1`
+
+• `**` (Power): `2 ** 3` -> `8`
+
+5. Pro-Tip for Beginners
+
+• `0.1 + 0.2` korle JS-e `0.30000000000000004` ashe. Tai doshomik-er khetre hisheb milate `toFixed()` bebohar kora bhalo.
+
+• String-er shathe sonkha jog korle seta join hoye jay: `"10" + 5` -> `"105"`. Kintu biyog korle kaj kore: `"10" - 5` -> `5`.
+
+Revision Tips:
+
+• `typeof NaN` kintu `number`.
+
+• `Number()` sobcheye clean way string theke number-e anar jonno.

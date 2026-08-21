@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+
+
+
+
+ইঞ্জিন মূলত দুটি প্রধান অংশে কাজ ভাগ করে নেয়: ১. Memory Heap এবং ২. Call Stack।
+
+১. Memory Heap (মেমরি হিপ)
+সহজ কথায়, এটি হলো একটি বড় গুদাম ঘর। আপনি যখন কোনো ভেরিয়েবল তৈরি করেন, অবজেক্ট বা ফাংশন লেখেন, সেগুলো মেমরির কোথায় জমা থাকবে? সেই জায়গাটাই হলো মেমরি হিপ।
+
+এটি একটি Unstructured জায়গা।
+
+এখানে বড় বড় ডেটা (যেমন: Objects, Arrays) জমা রাখা হয়।
+
+২. Call Stack (কল স্ট্যাক)
+এটি হলো ইঞ্জিনের কাজের টেবিল। এখানে কোডগুলো একটার পর একটা সিরিয়াল অনুযায়ী রান হয়। এটি LIFO (Last In, First Out) নীতিতে চলে। অর্থাৎ, যে কাজ সবার শেষে আসবে, সে সবার আগে শেষ হয়ে চলে যাবে।
+
+উদাহরণ:
+
+JavaScript
+function sayHello() {
+  console.log("Hello!");
+}
+
+function greeting() {
+  sayHello(); // এখানে অন্য ফাংশনকে ডাকছে
+}
+
+greeting();
+এখানে যা ঘটে:
+
+প্রথমে greeting() স্ট্যাকে ঢোকে।
+
+greeting এর ভেতর থেকে sayHello() কে ডাকা হয়, তাই এটি স্ট্যাকের উপরে চলে আসে।
+
+sayHello কাজ শেষ করে স্ট্যাক থেকে বের হয়ে যায়।
+
+সবশেষে greeting কাজ শেষ করে বের হয়ে যায়।
+
+৩. Execution Context (এক্সিকিউশন কনটেক্সট)
+যখনই আপনি জাভাস্ক্রিপ্ট কোড রান করেন, ইঞ্জিন একটি পরিবেশ তৈরি করে। একে বলে Execution Context। এটি দুই প্রকার:
+
+Global Execution Context: পুরো ফাইল রান করার জন্য তৈরি হয়।
+
+Function Execution Context: প্রতিবার নতুন কোনো ফাংশন কল করলে আলাদা একটি পরিবেশ তৈরি হয়।
+
+৪. Google V8 ইঞ্জিনের স্পেশাল ক্ষমতা (JIT Compilation)
+আগে ইঞ্জিনগুলো শুধু Interpretation (লাইন বাই লাইন অনুবাদ) করতো, যা ছিল ধীরগতির। কিন্তু আধুনিক ইঞ্জিন (যেমন: V8) ব্যবহার করে JIT (Just-In-Time) Compilation।
+এটি কোড রান করার সময় একই সাথে তাকে অপ্টিমাইজ বা উন্নত করে ফেলে, যাতে সেটি সুপার ফাস্ট চলে।
+
+৫. ইংরেজি প্র্যাকটিস প্যারাগ্রাফ (Reading Improvement)
+"The Call Stack and Memory Heap work together to manage how JavaScript code is executed. While the heap allocates memory for objects, the stack keeps track of the sequence of function calls. If the stack grows too large due to infinite recursion, it leads to a common error known as 'Stack Overflow'. Modern engines optimize this process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+সহজ কথায়, আমরা জাভাস্ক্রিপ্ট কোড যেভাবে লিখি (English-like words), কম্পিউটার বা প্রসেসর কিন্তু তা সরাসরি বোঝে না। কম্পিউটার বোঝে শুধু 0 আর 1 (Machine Code)। এই মাঝখানের কাজটাই করে JS Engine।
+
+নিচে এটি আরও কিছুটা পরিষ্কার করে বুঝিয়ে দিচ্ছি:
+
+১. জনপ্রিয় JS Engine-এর তালিকা
+আপনি যেগুলোর নাম বলেছেন সেগুলো ছাড়াও আরও কিছু ইঞ্জিন আছে:
+
+V8 Engine: এটি সবচেয়ে জনপ্রিয়। এটি Google Chrome, Microsoft Edge, Opera এবং ব্রাউজারের বাইরে Node.js-এ ব্যবহৃত হয়।
+
+SpiderMonkey: এটি পৃথিবীর প্রথম JS Engine, যা Mozilla Firefox-এ ব্যবহৃত হয়।
+
+JavaScriptCore (Nitro): এটি Apple-এর তৈরি এবং Safari ব্রাউজারে ব্যবহৃত হয়।
+
+Chakra: এটি পুরনো Internet Explorer-এ ব্যবহৃত হতো।
+
+২. ইঞ্জিন আসলে কী করে? (কিভাবে রান হয়?)
+যখন আপনি কোনো ব্রাউজারে কোড রান করেন, তখন ইঞ্জিন ৩টি প্রধান কাজ করে:
+
+Parsing: আপনার কোডগুলোকে পড়ে ছোট ছোট টুকরো (Tokens) করে।
+
+Compilation: কোডগুলোকে মেশিন কোডে (Machine Code) রূপান্তর করে (যাতে কম্পিউটার বুঝতে পারে)।
+
+Execution: সেই মেশিন কোডগুলো রান করে এবং আপনাকে আউটপুট দেখায়।
+
+৩. আপনার জন্য একটি গুরুত্বপূর্ণ তথ্য (V8 এবং Node.js)
+আগে জাভাস্ক্রিপ্ট শুধু ব্রাউজারের ভেতরেই চলত। কিন্তু রায়ান ডাল (Ryan Dahl) নামের এক ভদ্রলোক Chrome-এর V8 Engine-কে ব্রাউজার থেকে বের করে কম্পিউটারে আলাদাভাবে চালানোর ব্যবস্থা করেন— আর এটাই হলো Node.js। তাই এখন আপনি ব্রাউজার ছাড়াও আপনার কম্পিউটারের টার্মিনালে JS কোড রান করতে পারেন।

@@ -1,0 +1,23 @@
+body{
+    background-color: cadetblue;
+}
+
+
+#comment-btn {
+  background-color: blueviolet;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+#comment-btn:hover {
+  background-color: rgb(79, 22, 133);
+  transition: 0.5s;
+}
+
+
+#comment-box{
+    background-color: rgb(228, 211, 211);
+}

@@ -1,0 +1,64 @@
+JavaScript variables have 3 types of scope:
+1. Global scope
+2. Function scope
+3. Block scope
+
+লোকাল স্কোপের ২ টি প্রধান রূপ:
+
+১. ফাংশন লোকাল (Function Scope)
+২. ব্লক লোকাল (Block Scope)
+
+
+
+
+১. গ্লোবাল স্কোপ (Global Scope)
+যখন কোনো ভ্যারিয়েবল কোনো ফাংশন বা ব্লকের { } বাইরে ঘোষণা করা হয়, সেটি গ্লোবাল স্কোপে থাকে। এটি কোডের যেকোনো জায়গা থেকে ব্যবহার করা যায়।
+
+let globalVar = "I am Global";
+
+function test() {
+    console.log(globalVar); // ফাংশনের ভেতর থেকে পাওয়া যাবে
+}
+console.log(globalVar); // বাইরে থেকেও পাওয়া যাবে
+
+
+
+২. ফাংশন স্কোপ (Function Scope)
+var, let, এবং const — এই তিনটাই ফাংশন স্কোপ মেনে চলে। অর্থাৎ, ফাংশনের ভেতর কোনো ভ্যারিয়েবল লিখলে তা বাইরে থেকে এক্সেস করা যায় না।
+
+function myFunction() {
+    var carName = "Toyota";
+    let speed = 100;
+}
+// console.log(carName); // Error: carName is not defined
+
+
+
+৩. ব্লক স্কোপ (Block Scope) - খুবই গুরুত্বপূর্ণ!
+ES6 আসার পর let এবং const ব্লক স্কোপ নিয়ে এসেছে। ব্লক মানে হলো যেকোনো দ্বিতীয় বন্ধনী { } (যেমন: if, for, while)।
+
+let/const: এরা ব্লকের বাইরে কাজ করে না।
+
+var: এটি ব্লক মানে না, তাই ব্লকের বাইরেও চলে আসে (যাকে বলে Leak)।
+
+{
+    let blockLet = "Secret";
+    var blockVar = "Visible";
+}
+// console.log(blockLet); // Error! (নিরাপদ)
+console.log(blockVar);    // "Visible" (এটি var-এর দুর্বলতা)
+
+
+৪. লেক্সিক্যাল স্কোপ এবং স্কোপ চেইন (Lexical Scope & Scope Chain)
+যদি একটি ফাংশনের ভেতরে আরেকটি ফাংশন থাকে, তবে ভেতরের ফাংশনটি তার বাইরের (Parent) ফাংশনের ভ্যারিয়েবলগুলো ব্যবহার করতে পারে। একেই Lexical Scope বলে।
+
+function parent() {
+    let money = 500;
+
+    function child() {
+        // সন্তান তার বাবার টাকা ব্যবহার করতে পারছে
+        console.log(money); 
+    }
+    child();
+}
+parent();

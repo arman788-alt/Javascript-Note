@@ -1,0 +1,3 @@
+json -> ekta converter.
+->backend e code ke pathaite hole text formate e toiri korte hoi, eta kore dey json
+->abar backend theke jokhon data gula ashe jegula text/json formate e ashe, segula JSON.parse(text) kore regular code e convert korte hoi.

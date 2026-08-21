@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding:0px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+
+#menu ul{
+    text-align: center;
+    margin-top: 25px;
+}
+
+#menu li{
+    display: inline-block;
+    margin:10px;
+    padding:10px;
+    height: 150px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ddd;
+}
+
+
+#menu li.red{
+    background: #ff7675;
+}
+
+
+#menu li.green{
+    background: #55efc4;
+}
+
+#menu li.blue{
+    background: #74b9ff;
+}
+
+#menu li.pink{
+    background: #fd79a8;
+}
+
+#menu li.purple{
+    background: #a29bfe;
+}
+
+

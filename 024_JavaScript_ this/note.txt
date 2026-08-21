@@ -1,0 +1,45 @@
+হজভাবে this এর ৪টি প্রধান নিয়ম নিচে বুঝিয়ে দিচ্ছি:
+
+১. গ্লোবাল স্কোপে this (Global Context)
+যদি তুমি কোনো ফাংশন বা অবজেক্টের বাইরে একদম খালি জায়গায় this লেখো, তবে সে পুরো ব্রাউজার উইন্ডোকে (window object) বোঝাবে।
+
+console.log(this); // আউটপুট: Window {...}
+
+২. অবজেক্টের মেথডে this (Object Method)
+যখন কোনো অবজেক্টের ভেতরে একটি ফাংশন (মেথড) থাকে এবং সেখানে this ব্যবহার করা হয়, তখন this মানে হলো সেই অবজেক্টটি নিজে। এটিই সবথেকে বেশি ব্যবহৃত হয়।
+
+const person = {
+  name: "Arman",
+  greet: function() {
+    console.log("Hi, I am " + this.name);
+  }
+};
+
+person.greet(); // আউটপুট: Hi, I am Arman
+লজিক: এখানে this পয়েন্ট করছে person অবজেক্টকে।
+
+৩. সাধারণ ফাংশনের ভেতরে this (Regular Function)
+যদি কোনো অবজেক্টের বাইরে একটি সাধারণ ফাংশনের ভেতর this ব্যবহার করো, তবে সে আবার গ্লোবাল window অবজেক্টকে বোঝাবে। (যদি না তুমি strict mode ব্যবহার করো)।
+
+
+
+function show() {
+  console.log(this);
+}
+show(); // আউটপুট: Window {...}
+
+৪. অ্যারো ফাংশনে this (Arrow Function) - খুবই স্পেশাল!
+অ্যারো ফাংশনের নিজস্ব কোনো this নেই। সে তার চারপাশে (Parent) যে আছে, তার থেকে this ধার করে নেয়। একে বলা হয় Lexical this।
+
+তোমার আগের উদাহরণের সমস্যাটা এখানেই ছিল। সাধারণ ফাংশন নিজের this তৈরি করে window কে খুঁজেছিল, কিন্তু অ্যারো ফাংশন ব্যবহার করলে সে বাইরের অবজেক্টকে খুঁজে পেত।
+
+
+const user = {
+  name: "Ali",
+  friends: ["Sajjad"],
+  print: function() {
+    this.friends.forEach((f) => {
+      console.log(this.name + " loves " + f); // এখানে this মানে user অবজেক্ট
+    });
+  }
+};

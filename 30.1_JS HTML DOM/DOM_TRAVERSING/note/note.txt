@@ -1,0 +1,54 @@
+// Manipulating -> Creating, inserting, removing Element
+// Traversing -> selecting an element from other Elements ->ekta element theke arekta element move/traverse kora.
+
+// Navigating Between Nodes:
+// You can use the following node properties to navigate between nodes with JavaScript:
+// parentNode
+// childNodes[nodenumber]
+// firstChild
+// lastChild
+// nextSibling
+// previousSibling
+
+
+
+
+// JavaScript-এ DOM Traversing মানে হলো একটি HTML এলিমেন্ট থেকে অন্য এলিমেন্টে যাতায়াত করা। এটাকে অনেকটা একটি ফ্যামিলি ট্রির মতো চিন্তা করতে পারেন, যেখানে একজন সদস্য থেকে তার বাবা-মা, ভাই-বোন বা সন্তানদের খুঁজে বের করা হয়।
+
+// নিচে সহজভাবে এর প্রধান তিনটি দিক আলোচনা করা হলো:
+
+
+
+// ১. নিচের দিকে যাওয়া (Downward Traversing)
+// যখন আপনি কোনো প্যারেন্ট এলিমেন্ট থেকে তার চাইল্ড এলিমেন্টকে খুঁজে বের করতে চান।
+
+// querySelector() / querySelectorAll(): নির্দিষ্ট কোনো চাইল্ড খুঁজে পেতে সবচেয়ে জনপ্রিয়।
+// children: এটি একটি এলিমেন্টের শুধুমাত্র HTML চাইল্ডগুলোর লিস্ট দেয়।
+// childNodes: এটি টেক্সট নোডসহ সব কিছু দেয় (সাধারণত children বেশি ব্যবহৃত হয়)।
+
+// const parent = document.querySelector('.container');
+// const children = parent.children; // সব চাইল্ড এলিমেন্ট পাবে
+
+
+
+// ২. উপরের দিকে যাওয়া (Upward Traversing)
+// যখন চাইল্ড থেকে তার প্যারেন্ট বা পূর্বপুরুষকে খুঁজতে চান।
+
+// parentElement: ঠিক উপরের প্যারেন্ট এলিমেন্টকে ধরে।
+// closest(): এটি খুবই শক্তিশালী। এটি উপরের দিকে খুঁজতে থাকে যতক্ষণ না আপনার দেওয়া CSS সিলেক্টরটির সাথে মিলে যায়।
+
+// const child = document.querySelector('.item');
+// const parent = child.parentElement;
+// const section = child.closest('section'); // সবচেয়ে কাছের 'section' ট্যাগটি খুঁজবে
+
+
+// ৩. আশেপাশে যাওয়া (Sideways/Sibling Traversing)
+
+// একই লেভেলের অন্য এলিমেন্ট বা ভাই-বোনদের খুঁজে বের করা।
+
+// nextElementSibling: পরের এলিমেন্টটি ধরে।
+// previousElementSibling: আগের এলিমেন্টটি ধরে।
+
+
+// কেন এটি গুরুত্বপূর্ণ?
+// DOM Traversing শিখলে আপনাকে প্রতিটি এলিমেন্টের জন্য আলাদা আলাদা ID বা Class দিতে হয় না। শুধু একটি এলিমেন্টকে সিলেক্ট করেই আপনি পুরো HTML স্ট্রাকচারে ঘুরে বেড়াতে পারেন।

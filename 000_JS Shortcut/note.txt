@@ -1,0 +1,4 @@
+JavaScript (ES6) code snippets
+-for shortcut key example:
+1. clg --> console.log(object)
+2. text wrap korar jonno -> alt + z

@@ -1,0 +1,94 @@
+/**
+ * ১. ডেট অবজেক্ট তৈরি করা (Creation)
+ */
+
+// বর্তমান সময় এবং তারিখ তৈরি করে
+const now = new Date(); 
+
+// নির্দিষ্ট তারিখ (String ফরম্যাটে: YYYY-MM-DD)
+const bDay = new Date("2000-01-25"); 
+
+// প্যারামিটার দিয়ে (Year, Month Index, Day, Hour, Minute, Second)
+// ⚠️ সতর্কতা: মাস (Month) ০ থেকে শুরু হয়। ০ = জানুয়ারি, ১১ = ডিসেম্বর।
+const specificDate = new Date(2026, 0, 30, 10, 30, 0); 
+
+
+
+/**
+ * ২. ডেট থেকে তথ্য বের করা (Get Methods)
+ */
+const d = new Date();
+
+console.log(d.getFullYear()); // বছর দেখাবে (যেমন: ২০২৬)
+console.log(d.getMonth());    // মাসের ইনডেক্স দেখাবে (০-১১)
+console.log(d.getDate());     // মাসের তারিখ দেখাবে (১-৩১)
+console.log(d.getDay());      // সপ্তাহের দিন (০ = রবিবার, ৬ = শনিবার)
+console.log(d.getHours());    // বর্তমান ঘণ্টা (০-২৩)
+console.log(d.getMinutes());  // বর্তমান মিনিট (০-৫৯)
+console.log(d.getTime());     // ১৯৭০ থেকে এখন পর্যন্ত মোট মিলি-সেকেন্ড (Timestamp)
+
+
+
+/**
+ * ৩. ডেট পরিবর্তন করা (Set Methods)
+ */
+const myDate = new Date();
+
+myDate.setFullYear(2030);    // বছর পরিবর্তন করে ২০৩০ করবে
+myDate.setMonth(5);          // মাস পরিবর্তন করে জুন (৫) করবে
+myDate.setDate(15);          // তারিখ পরিবর্তন করে ১৫ করবে
+
+/**
+ * ৪. ডেট ফরম্যাটিং (Formatting for Display)
+ */
+const dateDisplay = new Date();
+
+console.log(dateDisplay.toString());           // বিস্তারিত সব তথ্যসহ স্ট্রিং
+console.log(dateDisplay.toDateString());       // শুধু দিন এবং তারিখ (Fri Jan 30 2026)
+console.log(dateDisplay.toLocaleDateString()); // শুধু তারিখ লোকাল ফরম্যাটে (1/30/2026)
+console.log(dateDisplay.toTimeString());       // শুধু সময়ের অংশটুকু দেখাবে
+console.log(dateDisplay.toISOString());        // স্ট্যান্ডার্ড ফরম্যাট (ডেটাবেজে সেভ করার জন্য)
+
+/**
+ * ৫. বর্তমান সময়ের শর্টকাট (Current Timestamp)
+ */
+// কোনো অবজেক্ট তৈরি না করেই সরাসরি বর্তমান মিলি-সেকেন্ড পাওয়ার জন্য
+const timestamp = Date.now();
+
+
+
+
+
+
+7. মাসের নাম বের করা (Index to Name)
+তুমি জানো getMonth() শুধু নম্বর (০-১১) দেয়। কিন্তু ইউজারকে তো আর নম্বর দেখালে চলবে না! তাই আমাদের একটি অ্যারে ব্যবহার করতে হয়:
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+console.log(months[d.getMonth()]); // এটি সুন্দর করে "January" দেখাবে
+
+
+
+
+8. সময়ের ব্যবধান বের করা (Difference between Dates)
+দুইটি তারিখের মধ্যে কত দিন বা কত সময় পার হয়েছে তা বের করা খুব কমন একটি কাজ। এটি মিলি-সেকেন্ড দিয়ে করতে হয়:
+
+JavaScript
+const startDate = new Date("2026-01-01");
+const endDate = new Date("2026-01-30");
+
+const diffInMs = endDate - startDate; // মিলি-সেকেন্ডে বিয়োগফল
+const diffInDays = diffInMs / (1000 * 60 * 60 * 24); // দিন এ কনভার্ট করার সূত্র
+console.log(diffInDays + " days left!"); 
+
+
+
+
+
+9. ইন্টেলিজেন্ট ফরম্যাটিং (Intl.DateTimeFormat)
+সবসময় হাতে লিখে ফরম্যাট করা কঠিন। জাভাস্ক্রিপ্টে একটি বিল্ট-ইন জাদুকরী মেথড আছে যা নিজে থেকেই সুন্দর করে তারিখ সাজিয়ে দেয়:
+
+JavaScript
+const now = new Date();
+const formatted = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full' }).format(now);
+console.log(formatted); // Friday, 30 January 2026

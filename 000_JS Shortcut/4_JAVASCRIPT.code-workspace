@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../5_Modern JS or ES6-DOM"
+		},
+		{
+			"path": "../../6.1_JS HTML DOM"
+		},
+		{
+			"path": "../../6_API and DOM WITH JS BOOST"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "4_JAVASCRIPT"
+	}
+}

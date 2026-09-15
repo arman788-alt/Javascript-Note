@@ -1,55 +1,598 @@
-// ১. স্ট্রিং ডিক্লেয়ারেশন (Single vs Double vs Escape)
-const fullName = 'Ali Hossain'; // সিঙ্গেল কোট
-const country = "Bangladesh";  // ডাবল কোট
-const sen = "I'm from Bangladesh"; // ভেতরে সিঙ্গেল কোট থাকলে বাইরে ডাবল কোট
-const sen2 = 'I\'m from Bangladesh'; // ব্যাকস্ল্যাশ (\) দিয়ে এস্কেপ করা
 
-// ২. কোটেশন ও নিউ লাইন (Special Characters)
-const quote = 'Bill Gates says "Some text"';
-const quote2 = "Bill Gates says \"Some text\""; // কোটেশন এস্কেপ
-const quote3 = "First Line \n Second Line"; // \n দিয়ে নতুন লাইন
+// ============================================================
+// JAVASCRIPT STRINGS
+// ============================================================
 
-// ৩. টেমপ্লেট লিটারেল (Template Literals - Modern Way)
-// ব্যাকটিক (``) ব্যবহার করলে ভ্যারিয়েবল ${} এবং মাল্টি-লাইন সাপোর্ট করে।
-let info = `I am ${fullName} and I am from ${country}. Result: ${4 + 4}`; 
 
-// ৪. স্ট্রিং প্রপার্টি এবং বেসিক মেথড
+// ============================================================
+// 1. Creating Strings
+// ============================================================
+
+// Single Quote
+const fullName = "Ali Hossain";
+
+// Double Quote
+const country = "Bangladesh";
+
+
+// Both are valid:
+// 'Hello'
+// "Hello"
+
+
+// ============================================================
+// 2. Apostrophe Inside String
+// ============================================================
+
+// Double quote ব্যবহার করলে ভিতরে single quote সমস্যা করে না।
+
+const sen = "I'm from Bangladesh";
+
+
+// অথবা Escape Character ব্যবহার করা যায়:
+
+const sen2 = 'I\'m from Bangladesh';
+
+
+// \'
+// → Single quote-কে escape করে
+
+
+
+// ============================================================
+// 3. Quotes Inside String
+// ============================================================
+
+const quotation = 'Bill Gates says "Some text"';
+
+
+// অথবা Escape Character:
+
+const quotation2 = "Bill Gates says \"Some text\"";
+
+
+// ============================================================
+// 4. New Line - \n
+// ============================================================
+
+const quotation3 = "Bill Gates says \n \"Some text\"";
+
+
+// \n → New Line
+
+
+// Common Escape Characters:
+//
+// \'  → Single quote
+// \"  → Double quote
+// \\  → Backslash
+// \n  → New line
+// \t  → Tab
+
+
+
+// ============================================================
+// 5. String Concatenation
+// ============================================================
+
+let info = "Ali " + "Hossain";
+
+let info2 = fullName + " " + country;
+
+let info3 = "I am " + fullName + " I am from " + country;
+
+
+// + দিয়ে একাধিক String/Value জোড়া লাগানো যায়.
+
+
+
+// ============================================================
+// 6. Template Literal
+// ============================================================
+
+// Backtick ব্যবহার করা হয়:
+//
+// ` `
+
+let info4 = `I am ${fullName} I am from ${country} ${4 + 4}`;
+
+console.log(info4);
+
+
+// ${}
+// → Variable বা JavaScript expression-এর value বসানো যায়.
+
+
+// ============================================================
+// 7. Multi-line String
+// ============================================================
+
+let info5 = `I am ${fullName}
+I am from ${country}
+${4 + 4}`;
+
+console.log(info5);
+
+
+// Template Literal-এর মধ্যে সরাসরি
+// multiple line লেখা যায়.
+
+
+
+// ============================================================
+// 8. new String()
+// ============================================================
+
+const fullName2 = new String("Shovo");
+
+
+// Normal String:
+
+const fullName3 = "Shovo";
+
+
+// Beginner হিসেবে:
+// new String() ব্যবহার না করে
+// সাধারণত "Shovo" এভাবে String তৈরি করব.
+
+
+
+// ============================================================
+// 9. String Index
+// ============================================================
+
 const student = "Ali Hossain";
-console.log(student.length);         // ১১ (স্পেসসহ মোট দৈর্ঘ্য)
-console.log(student.toUpperCase());  // সব বড় হাতের (ALI HOSSAIN)
-console.log(student.toLowerCase());  // সব ছোট হাতের (ali hossain)
-console.log(student.charAt(2));      // ২ নম্বর ইনডেক্সে কী আছে (i)
-console.log(student.indexOf('H'));   // 'H' কত নম্বর ইনডেক্সে আছে (৪)
 
-// ৫. স্ট্রিং কাটা (Extraction: Slice vs Substring)
-/* A  L  I     H  O  S  S  A  I  N
-   0  1  2  3  4  5  6  7  8  9 10 
+/*
+    A  l  i     H  o  s  s  a  i  n
+    0  1  2  3  4  5  6  7  8  9 10
+
+    String index 0 থেকে শুরু হয়.
 */
-student.slice(4, 8);      // "Hoss" (৪ থেকে ৮ এর আগ পর্যন্ত)
-student.substring(4, 8);  // "Hoss" (৪ থেকে ৮ এর আগ পর্যন্ত)
-
-// পার্থক্য: নেগেটিভ ইনডেক্স
-student.slice(-6);        // "ossain" (পিছন থেকে ৬ ঘর)
-student.substring(-6);    // "Ali Hossain" (নেগেটিভকে ০ ধরে পুরোটা দেখাবে)
 
 
+// Specific character access:
 
-// ৬. ক্লিন আপ মেথডস (Trim)
-const someText = "          Ali          ";
-console.log(someText.trim());      // দুই পাশের সব স্পেস মুছে দিবে
-console.log(someText.trimStart()); // শুধু শুরুর স্পেস মুছবে
-console.log(someText.trimEnd());   // শুধু শেষের স্পেস মুছবে
+console.log(student[0]);   // A
+console.log(student[1]);   // l
+console.log(student[4]);   // H
 
-// ৭. রিপ্লেস এবং স্প্লিট (Replace & Split)
+
+
+// ============================================================
+// 10. length
+// ============================================================
+
+console.log(student.length);
+
+
+// String-এর মোট character সংখ্যা দেয়.
+// Space-ও count হয়.
+
+
+// "Ali Hossain" → 11
+
+
+
+// ============================================================
+// 11. charAt()
+// ============================================================
+
+console.log(student.charAt(2));
+
+
+// index 2-এর character দেয়.
+//
+// Output:
+// i
+
+
+
+// ============================================================
+// 12. indexOf()
+// ============================================================
+
+console.log(student.indexOf("a"));
+
+
+// কোনো character বা text প্রথম কোথায় আছে
+// তার index return করে.
+//
+// না পাওয়া গেলে:
+// -1
+
+
+
+// ============================================================
+// 13. toUpperCase()
+// ============================================================
+
+console.log(student.toUpperCase());
+
+
+// "Ali Hossain"
+// ↓
+// "ALI HOSSAIN"
+
+
+
+// ============================================================
+// 14. toLowerCase()
+// ============================================================
+
+console.log(student.toLowerCase());
+
+
+// "Ali Hossain"
+// ↓
+// "ali hossain"
+
+
+
+/*
+toLocaleUpperCase()
+toLocaleLowerCase()
+
+→ Locale-sensitive case conversion.
+→ Beginner হিসেবে এখন toUpperCase()
+  এবং toLowerCase() জানলেই যথেষ্ট.
+*/
+
+
+
+// ============================================================
+// 15. slice()
+// ============================================================
+
+// Syntax:
+//
+// string.slice(start, end)
+
+
+// Start থেকে End-এর আগ পর্যন্ত নেয়.
+
+console.log(student.slice(6));
+
+
+// index 6 থেকে শেষ পর্যন্ত
+// Output:
+// "ssain"
+
+
+console.log(student.slice(-6));
+
+
+// শেষ দিক থেকে 6 character
+// Output:
+// "ossain"
+
+
+console.log(student.slice(4, 8));
+
+
+// index 4 থেকে index 8-এর আগে
+// Output:
+// "Hoss"
+
+
+// Negative index support করে.
+
+console.log(student.slice(-8, -3));
+
+
+// Output:
+// "Hoss"
+
+
+// ============================================================
+// 16. substring()
+// ============================================================
+
+// Syntax:
+//
+// string.substring(start, end)
+
+console.log(student.substring(6));
+
+
+// Output:
+// "ssain"
+
+
+console.log(student.substring(4, 8));
+
+
+// Output:
+// "Hoss"
+
+
+// Important:
+// substring() negative index support করে না.
+//
+// Negative value → 0 হিসেবে নেয়.
+
+
+
+// ============================================================
+// 17. slice() vs substring()
+// ============================================================
+
+/*
+slice()
+→ Negative index support করে.
+
+substring()
+→ Negative index support করে না.
+→ Negative value-কে 0 ধরে.
+*/
+
+
+// তাই practical coding-এ
+// slice() খুব important.
+
+
+
+// ============================================================
+// 18. trim()
+// ============================================================
+
+const someText = "          Ali           ";
+
+console.log(someText.trim());
+
+
+// শুরু এবং শেষের whitespace remove করে.
+//
+// Output:
+// "Ali"
+
+
+
+// ============================================================
+// 19. trimStart()
+// ============================================================
+
+console.log(someText.trimStart());
+
+
+// শুধু শুরু থেকে whitespace remove করে.
+
+
+
+// ============================================================
+// 20. trimEnd()
+// ============================================================
+
+console.log(someText.trimEnd());
+
+
+// শুধু শেষ থেকে whitespace remove করে.
+
+
+
+// ============================================================
+// 21. replace()
+// ============================================================
+
 const url = "https://ali.com/new%20Blog";
-console.log(url.replace("%20", "-")); // %20 কে ড্যাশ (-) দিয়ে বদলে দিবে
 
-const tags = "HTML,CSS,JS";
-console.log(tags.split(",")); // কমার ভিত্তিতে ভেঙে অ্যারে বানাবে ["HTML", "CSS", "JS"]
+console.log(url.replace("%20", "-"));
 
 
+// Output:
+// https://ali.com/new-Blog
 
-// ৮. অবজেক্ট হিসেবে স্ট্রিং (সতর্কতা)
-const nameObj = new String("Shovo"); // এটি একটি Object (ধীর গতির)
-const namePri = "Shovo";             // এটি একটি Primitive (ফাস্ট)
-console.log(typeof nameObj);         // "object"
+
+// replace() সাধারণত প্রথম matching value replace করে.
+
+
+
+// ============================================================
+// 22. split()
+// ============================================================
+
+console.log(info5.split(" "));
+
+
+// String-কে Array-তে ভাগ করে.
+//
+// "I am Ali"
+//
+// split(" ")
+//
+// ↓
+//
+// ["I", "am", "Ali"]
+
+
+// Another Example:
+
+const date = "2026-09-15";
+
+console.log(date.split("-"));
+
+
+// Output:
+// ["2026", "09", "15"]
+
+
+// ============================================================
+// 23. DOM Example
+// ============================================================
+
+// এটি String method নয়.
+// এটি DOM manipulation.
+
+document.getElementById("title").innerText = info5;
+
+
+// HTML-এর id="title" element-এর ভিতরে
+// info5-এর text বসাবে.
+
+
+
+// ============================================================
+// QUICK REVISION
+// ============================================================
+
+
+/*
+String তৈরি:
+
+"Hello"
+'Hello'
+`Hello`
+
+
+Concatenation:
+
+"Hello " + name
+
+
+Template Literal:
+
+`Hello ${name}`
+
+
+Length:
+
+string.length
+
+
+Character:
+
+string.charAt(index)
+string[index]
+
+
+Search:
+
+string.indexOf("text")
+
+
+Uppercase:
+
+string.toUpperCase()
+
+
+Lowercase:
+
+string.toLowerCase()
+
+
+Cut / Extract:
+
+string.slice(start, end)
+
+string.substring(start, end)
+
+
+Remove Extra Spaces:
+
+string.trim()
+string.trimStart()
+string.trimEnd()
+
+
+Replace:
+
+string.replace(old, new)
+
+
+Convert String → Array:
+
+string.split(separator)
+*/
+
+
+// ============================================================
+// MOST IMPORTANT THINGS TO REMEMBER
+// ============================================================
+
+/*
+1. String index starts from 0.
+
+2. length gives total number of characters.
+
+3. slice() can use negative index.
+
+4. substring() does not support negative index.
+
+5. trim() removes beginning and ending whitespace.
+
+6. replace() replaces matching text.
+
+7. split() converts String into Array.
+
+8. Template Literal uses backticks:
+   `Hello ${name}`
+
+9. + can concatenate Strings.
+
+10. \n means new line.
+*/
+
+
+// ============================================================
+// STRING CHEAT SHEET
+// ============================================================
+
+/*
+
++               → String জোড়া লাগানো
+
+`Hello ${name}` → Template Literal
+
+length          → মোট character
+
+charAt()        → নির্দিষ্ট character
+
+indexOf()       → কোনো text কোথায় আছে
+
+toUpperCase()   → সব uppercase
+
+toLowerCase()   → সব lowercase
+
+slice()         → String-এর অংশ নেওয়া
+
+substring()     → String-এর অংশ নেওয়া
+
+trim()          → শুরু + শেষের whitespace remove
+
+trimStart()     → শুরুর whitespace remove
+
+trimEnd()       → শেষের whitespace remove
+
+replace()       → text replace
+
+split()         → String → Array
+
+\n              → New Line
+
+\'              → Single Quote escape
+
+\"              → Double Quote escape
+
+*/
+
+
+
+
+Most Important:
+
+length
+charAt()
+indexOf()
+
+toUpperCase()
+toLowerCase()
+
+slice()
+substring()
+
+trim()
+trimStart()
+trimEnd()
+
+replace()
+split()

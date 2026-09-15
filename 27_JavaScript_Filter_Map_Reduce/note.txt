@@ -1,0 +1,288 @@
+# JavaScript `filter()`, `map()` & `reduce()`
+
+## 1. `filter()`
+
+### কাজ:
+
+Array থেকে **শর্ত অনুযায়ী কিছু item বাছাই করে নতুন Array তৈরি করে।**
+
+### Syntax:
+
+const result = array.filter(item => condition);
+
+### Example:
+
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+const result = numbers.filter(num => num > 5);
+
+console.log(result);
+```
+
+Output:
+
+[6, 7]
+
+### মনে রাখবে:
+
+```text
+filter = বাছাই করা
+```
+
+`true` হলে item থাকবে।
+`false` হলে item বাদ যাবে।
+
+### Object example:
+
+```js
+const userStack = stack.filter(
+  course => course.foundation === 'JavaScript'
+);
+```
+
+শুধু JavaScript foundation-এর course পাওয়া যাবে।
+
+---
+
+# 2. `map()`
+
+### কাজ:
+
+Array-এর **প্রতিটি item-এর উপর কাজ করে নতুন Array তৈরি করে।**
+
+### Syntax:
+
+```js
+const result = array.map(item => newValue);
+```
+
+### Example:
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.map(num => num * 2);
+
+console.log(result);
+```
+
+Output:
+
+```js
+[2, 4, 6, 8, 10]
+```
+
+### গুরুত্বপূর্ণ:
+
+`map()`-এর callback থেকে `return` করা value নতুন Array-এর item হয়।
+
+```js
+const result = numbers.map(num => {
+  return num + 5;
+});
+```
+
+### মনে রাখবে:
+
+```text
+map = প্রতিটি item পরিবর্তন / transform করা
+```
+
+---
+
+# 3. `reduce()`
+
+### কাজ:
+
+Array-এর সব item process করে **একটি final result** তৈরি করে।
+
+### Syntax:
+
+array.reduce((accumulator, currentValue) => {
+  return result;
+}, initialValue);
+
+### গুরুত্বপূর্ণ শব্দ:
+
+accumulator = এখন পর্যন্ত জমা হওয়া result
+currentValue = বর্তমানে যে item নিয়ে কাজ হচ্ছে
+initialValue = accumulator-এর starting value
+
+### Example:
+
+const numbers = [1, 2, 3, 4];
+
+const total = numbers.reduce(
+  (acc, num) => acc + num,
+  0
+);
+
+Result:
+10
+
+### Step:
+
+acc = 0
+
+0 + 1 = 1
+1 + 2 = 3
+3 + 3 = 6
+6 + 4 = 10
+```
+
+Final:
+
+```text
+10
+```
+
+---
+
+# 4. Object Array + reduce()
+
+const coursePrice = stack.reduce(
+  (acc, course) => acc + course.price,
+  0
+);
+
+এখানে:
+
+```text
+acc = জমা হওয়া total
+course = বর্তমান course object
+course.price = বর্তমান course-এর price
+```
+
+সব course-এর price যোগ করে একটি total পাওয়া যাবে।
+
+---
+
+# 5. তিনটার মূল পার্থক্য
+
+| Method     | কাজ                       | Result               |
+| ---------- | ------------------------- | -------------------- |
+| `filter()` | item বাছাই                | নতুন Array           |
+| `map()`    | item পরিবর্তন             | নতুন Array           |
+| `reduce()` | সব item থেকে final result | যেকোনো single result |
+
+filter() → নতুন array দেয়, main array change করে না
+map()    → নতুন array দেয়, main array change করে না
+reduce() → final result দেয়, main array change করে না
+
+### Shortcut:
+
+```text
+filter → SELECT
+map    → TRANSFORM
+reduce → COMBINE
+```
+
+আরও সহজ:
+
+```text
+filter = কোনগুলো রাখব?
+map    = এগুলোকে কীভাবে পরিবর্তন করব?
+reduce = সবগুলো মিলে final result কী?
+```
+
+---
+
+# 6. সবচেয়ে গুরুত্বপূর্ণ Examples
+
+### Filter
+
+```js
+const result = numbers.filter(num => num > 5);
+```
+
+### Map
+
+```js
+const result = numbers.map(num => num * 2);
+```
+
+### Reduce
+
+```js
+const result = numbers.reduce(
+  (acc, num) => acc + num,
+  0
+);
+```
+
+---
+
+# 7. Method Chaining
+
+একাধিক method একসাথে ব্যবহার করা যায়।
+
+const result = numbers
+  .map(num => num + 5)
+  .map(num => num * 5)
+  .filter(num => num >= 50);
+
+
+Flow:
+
+```text
+Original
+   ↓
+map()
+   ↓
+map()
+   ↓
+filter()
+   ↓
+Final Array
+```
+
+---
+
+# 8. `forEach()` বনাম `filter()` বনাম `map()` বনাম `reduce()`
+
+```text
+forEach → প্রতিটি item-এর জন্য কাজ করো
+filter  → প্রয়োজনীয় item বেছে নাও
+map     → প্রতিটি item transform করো
+reduce  → সব item থেকে একটি final result বানাও
+```
+
+### One-line memory trick:
+
+> **forEach = Do**
+> **filter = Select**
+> **map = Transform**
+> **reduce = Combine**
+
+---
+
+# 9. Quick Revision
+
+```js
+// FILTER
+numbers.filter(num => num > 5);
+
+// MAP
+numbers.map(num => num * 2);
+
+// REDUCE
+numbers.reduce((acc, num) => acc + num, 0);
+```
+
+### মনে রাখার formula:
+
+```text
+filter → condition
+map → return new value
+reduce → accumulator + current value
+```
+
+### React-এর জন্য সবচেয়ে important:
+
+```text
+map() ⭐⭐⭐⭐⭐
+filter() ⭐⭐⭐⭐⭐
+reduce() ⭐⭐⭐⭐
+```
+
+বিশেষ করে React-এ Array থেকে UI render করার সময় `map()` খুব বেশি ব্যবহার হবে।

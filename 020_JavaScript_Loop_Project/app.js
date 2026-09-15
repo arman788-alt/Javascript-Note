@@ -69,3 +69,6 @@ let difficulty = prompt('Choose difficulty (easy, medium, hard)').toLowerCase();
 guessTheNumber(difficulty);
 
 // console.log(difficulty);
+
+
+

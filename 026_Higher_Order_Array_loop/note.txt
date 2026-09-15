@@ -1,0 +1,533 @@
+                    LOOP
+                      │
+       ┌──────────────┼───────────────┐
+       │              │               │
+      for          for...of        for...in
+       │              │               │
+   index দিয়ে       value           key/index
+    কাজ             দেয়             দেয়
+                                     
+                      │
+                   forEach()
+                      │
+              Array-এর প্রতিটা
+              item-এর জন্য
+              function চালায়
+
+
+
+
+================================================
+             JavaScript Loops
+================================================
+
+for
+→ Traditional loop
+→ index দিয়ে Array access করা যায়
+
+
+for...of
+→ value দেয়
+→ Array / String / Map ইত্যাদির জন্য useful
+
+
+for...in
+→ key দেয়
+→ Object-এর জন্য খুব useful
+→ Array-তে index দেয়
+
+
+forEach()
+→ Array-এর প্রতিটা item-এর জন্য function চালায়
+→ value + index + পুরো array পাওয়া যায়
+================================================
+
+
+
+
+`
+  
+
+// ============================================================
+// JAVASCRIPT LOOPS
+// ============================================================
+
+
+// Loop
+// → একই কাজ বারবার করার জন্য ব্যবহার করা হয়.
+
+
+
+// ============================================================
+// 1. Traditional for Loop
+// ============================================================
+
+const fruits = [
+    "Mango",
+    "Banana",
+    "Orange",
+    "Graps"
+];
+
+
+for (let fruit = 0; fruit < fruits.length; fruit++) {
+
+    console.log(fruits[fruit]);
+
+}
+
+
+// for Loop Structure:
+//
+// for (start; condition; increment) {
+//     // code
+// }
+
+
+// Example:
+//
+// let fruit = 0
+// fruit < fruits.length
+// fruit++
+
+
+// Array-এর index দিয়ে কাজ করার জন্য traditional for loop useful.
+
+
+
+// ============================================================
+// 2. for...of Loop
+// ============================================================
+
+// for...of সরাসরি Array-এর value দেয়।
+
+for (const fruit of fruits) {
+
+    console.log(fruit);
+
+}
+
+
+// Output:
+//
+// Mango
+// Banana
+// Orange
+// Graps
+
+
+// মনে রাখো:
+//
+// for...of → value
+
+
+
+// ============================================================
+// 3. for...of with String
+// ============================================================
+
+const myName = "Ali Hossain";
+
+
+for (const name of myName) {
+
+    console.log(`Each char is ${name}`);
+
+}
+
+
+// String-এর প্রতিটা character পাওয়া যাবে.
+//
+// A
+// l
+// i
+// space
+// H
+// o
+// s
+// s
+// a
+// i
+// n
+
+
+
+// ============================================================
+// 4. Map
+// ============================================================
+
+// Map-এ Key এবং Value থাকে।
+
+const country = new Map([
+    ["Bn", "Bangladesh"],
+    ["In", "India"],
+    ["Pk", "Pakistan"],
+    ["Np", "Nepal"],
+]);
+
+
+// নতুন Key + Value যোগ:
+
+country.set("Vu", "Vutan");
+
+
+// Map-এর উপর for...of:
+
+for (const [key, value] of country) {
+
+    console.log(key, ":", value);
+
+}
+
+
+// Output:
+//
+// Bn : Bangladesh
+// In : India
+// Pk : Pakistan
+// Np : Nepal
+// Vu : Vutan
+
+
+// [key, value]
+// → Destructuring
+//
+// ["Bn", "Bangladesh"]
+//
+// becomes:
+//
+// key   = "Bn"
+// value = "Bangladesh"
+
+
+
+// ============================================================
+// 5. Object
+// ============================================================
+
+const myCountry = {
+
+    Bn: "Bangladesh",
+    In: "India",
+    Pk: "Pakistan",
+    Np: "Nepal",
+
+};
+
+
+// সাধারণ Object-এর উপর সরাসরি for...of কাজ করে না.
+//
+// for (const key of myCountry) {
+//     console.log(key);
+// }
+//
+// ❌ Error
+
+
+
+// ============================================================
+// 6. Object.keys()
+// ============================================================
+
+// Object.keys() Object-এর সব key নিয়ে
+// একটি Array তৈরি করে।
+
+console.log(Object.keys(myCountry));
+
+
+// Output:
+//
+// ["Bn", "In", "Pk", "Np"]
+
+
+// এখন এই Array-এর উপর for...of চালানো যায়:
+
+for (const key of Object.keys(myCountry)) {
+
+    console.log(key);
+
+}
+
+
+// Output:
+//
+// Bn
+// In
+// Pk
+// Np
+
+
+
+// ============================================================
+// 7. for...in Loop
+// ============================================================
+
+// Object-এর ক্ষেত্রে for...in key/property দেয়।
+
+for (const key in myCountry) {
+
+    console.log(key, ":", myCountry[key]);
+
+}
+
+
+// Output:
+//
+// Bn : Bangladesh
+// In : India
+// Pk : Pakistan
+// Np : Nepal
+
+
+// key যদি "Bn" হয়:
+//
+// myCountry[key]
+//
+// becomes:
+//
+// myCountry["Bn"]
+//
+// → Bangladesh
+
+
+
+// ============================================================
+// 8. for...in with Array
+// ============================================================
+
+// Array-এর ক্ষেত্রে for...in index দেয়।
+
+for (const key in fruits) {
+
+    console.log(key);
+
+}
+
+
+// Output:
+//
+// 0
+// 1
+// 2
+// 3
+
+
+// Value চাইলে:
+
+for (const key in fruits) {
+
+    console.log(fruits[key]);
+
+}
+
+
+// Output:
+//
+// Mango
+// Banana
+// Orange
+// Graps
+
+
+
+// ============================================================
+// 9. forEach()
+// ============================================================
+
+// forEach() Array-এর প্রতিটা item-এর জন্য
+// একটি function execute করে।
+
+fruits.forEach(function (fruit) {
+
+    console.log(fruit);
+
+});
+
+
+// Arrow Function দিয়ে:
+
+fruits.forEach(fruit => {
+
+    console.log(fruit);
+
+});
+
+
+// আলাদা function ব্যবহার করেও:
+
+function myFruit(fruit) {
+
+    console.log(fruit);
+
+}
+
+fruits.forEach(myFruit);
+
+
+
+// ============================================================
+// 10. forEach() Parameters
+// ============================================================
+
+// forEach() callback function-এর মধ্যে
+// সাধারণত ৩টি important parameter পাওয়া যায়:
+//
+// 1. value
+// 2. index
+// 3. array
+
+
+fruits.forEach((fruit, index, arr) => {
+
+    console.log(fruit, index, arr);
+
+});
+
+
+// fruit → বর্তমান value
+// index → বর্তমান index
+// arr   → পুরো Array
+
+
+
+// ============================================================
+// 11. Array of Objects
+// ============================================================
+
+const stack = [
+
+    {
+        name: "MERN Stack",
+        property: "Mongo, Express, React, Node",
+    },
+
+    {
+        name: "Laravel",
+        property: "JavaScript, Vue, PHP, Laravel, MySQL",
+    },
+
+    {
+        name: "WordPress",
+        property: "JavaScript, PHP, WordPress, MySQL",
+    },
+
+];
+
+
+
+// ============================================================
+// 12. forEach() with Array of Objects
+// ============================================================
+
+stack.forEach(info => {
+
+    console.log(
+        `Want to learn ${info.name}? Learn this ${info.property}`
+    );
+
+});
+
+
+// এখানে:
+//
+// stack
+// → Array
+//
+// info
+// → প্রতিবার একটি Object
+//
+// info.name
+// → Object-এর name property
+//
+// info.property
+// → Object-এর property property
+
+
+
+// ============================================================
+// LOOP COMPARISON
+// ============================================================
+
+
+/*
+
+--------------------------------------------------------------
+Loop          কী দেয়                 কোথায় ব্যবহার করব
+--------------------------------------------------------------
+
+for           index/control          Traditional loop
+
+for...of      value                  Array, String, Map ইত্যাদি
+
+for...in      key/index              Object / Array
+
+forEach()     value + index + array  Array-এর প্রতিটা item
+--------------------------------------------------------------
+
+
+IMPORTANT:
+
+for...of
+→ value দেয়
+
+
+for...in
+→ key/index দেয়
+
+
+forEach()
+→ Array-এর প্রতিটা item-এর জন্য function চালায়
+
+*/
+
+
+// ============================================================
+// EASY MEMORY TRICK
+// ============================================================
+
+
+/*
+
+for
+→ পুরোনো/Traditional loop
+
+
+for...of
+→ OF = value
+
+
+for...in
+→ IN = key/index
+
+
+forEach
+→ প্রতিটা item-এর জন্য কাজ
+
+*/
+
+
+// ============================================================
+// NEXT IMPORTANT ARRAY METHODS
+// ============================================================
+
+
+/*
+
+forEach()
+    ↓
+map()
+    ↓
+filter()
+    ↓
+find()
+    ↓
+some()
+    ↓
+every()
+    ↓
+reduce()
+
+*/
+```
+
+

@@ -133,3 +133,15 @@ stack.forEach(info => {
 // stack.forEach(function(info){
 //   console.log(info.name, info.property);
 // })
+
+
+
+
+
+
+
+// for...in
+// → key / index দেয়
+
+// for...of
+// → value দেয়

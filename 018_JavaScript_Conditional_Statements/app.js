@@ -23,7 +23,9 @@ if (age > 40) {
 let text = (age < 18) ? "Minor" : "Adult";
 console.log(text);
 
-
+//note: 
+// condition ? trueValue : falseValue
+// condition ? true হলে যা হবে(Minor) : false হলে যা হবে(Adult)
 
 
 // Switch Case

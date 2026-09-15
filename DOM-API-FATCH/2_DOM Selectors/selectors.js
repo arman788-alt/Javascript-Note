@@ -74,6 +74,9 @@ for(let i = 0; i < result.length; i++){
 
 
 
+
+
+
 // for loop
 // for (let i = 0; i < findElemenet.length; i++) {
 //   console.log(findElemenet[i]);

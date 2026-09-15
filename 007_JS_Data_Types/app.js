@@ -64,4 +64,6 @@ let student = {
 };
 console.log(finalName);
 console.log(student);
+
+// datatype check
 console.log(typeof student);

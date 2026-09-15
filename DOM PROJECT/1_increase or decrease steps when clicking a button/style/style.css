@@ -22,9 +22,9 @@ button:disabled{
 
 
 
-
+/* 
 
 জায়গা (Where)	সচল করতে চাইলে (Enabled)	অচল করতে চাইলে (Disabled)
 HTML ফাইল	<button> (কিছুই লিখবেন না)	<button disabled>
 JavaScript	btn.disabled = false;	btn.disabled = true;
-React/Vue	disabled={false}	disabled={true}
+React/Vue	disabled={false}	disabled={true} */

@@ -121,3 +121,13 @@ person.age = 32;
 console.log(person);
 
 let $firstName1 = 'Shovo';
+
+
+
+// let name = "Arman";
+// │   │      │
+// │   │      └── Value / Data
+// │   │
+// │   └── Variable Name
+// │
+// └── Variable তৈরি করার Keyword

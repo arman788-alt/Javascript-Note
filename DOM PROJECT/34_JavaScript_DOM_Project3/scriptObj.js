@@ -39,3 +39,6 @@ function autoQuote() {
 }
 autoQuote();
 button.addEventListener('click', autoQuote);
+
+
+

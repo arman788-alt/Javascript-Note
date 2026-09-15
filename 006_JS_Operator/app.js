@@ -38,8 +38,9 @@ console.log(`Decrement ${y}`);
  */
 let p = 5;
 let q = 10;
-console.log(p == q); // equal to
+console.log(p == q); // equal to (only value check kore)
 console.log(p === q); // equal value and equal type
+console.log(p != q)  // not equal value
 console.log(p !== q); //not equal value or not equal type
 console.log(p > q); // Greater Than
 console.log(p < q); // Less Than
@@ -53,6 +54,8 @@ console.log(p >= q); // Greater Than Equal to
 // && AND Operator
 // || OR Operator
 // !(p<q) NOT Operator
+// console.log(!false);
+
 
 /*
  * Assignment Operator
@@ -90,3 +93,5 @@ else console.log('False');
 
 let firstName = 'Ali';
 console.log(typeof firstName);
+
+

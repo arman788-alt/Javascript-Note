@@ -59,6 +59,9 @@ button.forEach(function (value) {
 
 
 
+
+
+
 // একটি উদাহরণ দিয়ে দেখুন:
 // ধরুন আপনার HTML এরকম:
 // <li class="blue button-style">Blue</li>

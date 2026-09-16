@@ -3,7 +3,8 @@
 // O -> HTML Elemets are objects
 // M -> HTML tree structure is the model
 
-// এইচটিএমএল এলিমেন্টে DOM ব্যবহার করে খুব সহজেই CRUD (Create, Read, Update, Delete) অপারেশন চালানো যায়। মূলত একটি ডাইনামিক ওয়েবসাইট তৈরি করতে এই চারটি কাজই সবথেকে বেশি লাগে।
+// এইচটিএমএল এলিমেন্টে DOM ব্যবহার করে খুব সহজেই CRUD (Create, Read, Update, Delete) অপারেশন চালানো যায়।
+//  মূলত একটি ডাইনামিক ওয়েবসাইট তৈরি করতে এই চারটি কাজই সবথেকে বেশি লাগে।
 
 
 
@@ -14,6 +15,7 @@
 // document.getElementsByTagName()
 // document.getElementsByClassName()
 // document.querySelector()
+// document.querySelectorAll()
 
 
 

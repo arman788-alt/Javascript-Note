@@ -13,6 +13,8 @@ h2.innerHTML = "I love Bangladesh";
 h2.id = "heading2-new";
 console.log(h2);
 
+h2.innerHTML = "<span>Hello Arman</span>";
+
 var a = document.querySelector("a");
 console.log(a)
 a.textContent="visit my website";
@@ -24,3 +26,24 @@ a.style.color = "green";
 a.style.fontSize = "2rem";
 
 
+// DOM — Change HTML Element
+
+// 1. Content change:
+// element.innerHTML = "New content";
+// element.textContent = "New text";
+
+// 2. Attribute change:
+// element.id = "new-id";
+// element.href = "new-link";
+
+// 3. Style change:
+// element.style.color = "red";
+// element.style.fontSize = "2rem";
+
+// Basic pattern:
+
+// Find element
+//      ↓
+// Store in variable
+//      ↓
+// Change element

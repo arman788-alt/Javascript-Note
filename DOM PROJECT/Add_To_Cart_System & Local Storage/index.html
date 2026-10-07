@@ -1,0 +1,66 @@
+<!-- Mini E-Commerce Site Using JavaScript | Add-to-Cart System with LocalStorage  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add-to-Cart-System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+
+    <div class="container">
+      <h1>Mini E-Commerce Site</h1>
+
+
+      <!-- cart 1 -->
+      <div class="products">
+        <div class="product">
+          <h2>Iphone 17</h2>
+          <p>$999</p>
+          <button class="add-to-cart" data-name ="Iphone 17"  data-price="999">Add to Cart</button>
+        </div>
+
+        <!-- cart 2 -->
+        <div class="product">
+            <h2>Galaxy s21</h2>
+            <p>$670</p>
+            <button class="add-to-cart" data-name="Galaxy s21"  data-price="670">Add to Cart</button>
+          </div>
+          
+
+          <!-- cart 3 -->
+          <div class="product">
+            <h2>Samsung</h2>
+            <p>$777</p>
+            <button class="add-to-cart" data-name="Samsung" data-price="777">Add to Cart</button>
+          </div>
+      </div>
+
+
+        <h1>Shopping Cart</h1>
+
+      <div class="cart">
+ 
+        <ul id="cart_item">
+
+
+
+           
+
+        </ul>
+
+        <p>Total: $<span class="total_price">0</span></p>
+        <button id="buy_now">Buy Now</button>
+
+ 
+      </div>
+
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

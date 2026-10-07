@@ -1,0 +1,90 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	/* position: absolute;
+	top: 50%;
+	transform: translateY(-12.225%); */
+	justify-content: center;
+	align-items: center;
+}
+.container .accordion {
+	width: 60%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+.container .accordion .accordion-item {
+	display: flex;
+	flex-direction: column;
+}
+.container .accordion .accordion-item button {
+	display: block;
+	padding: 20px 20px;
+	width: 100%;
+	background-color: aquamarine;
+	color: black;
+	font-size: 25px;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: .3s ease background;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.container .accordion .accordion-item .accordion-content {
+	padding: 0 20px;
+	height: 0;
+	display: block;
+	background-color: beige;
+	overflow: hidden;
+	transition: .3s ease height;
+}
+.container .accordion .accordion-item .accordion-content h1 {
+	margin-top: 50px;
+}
+.container .accordion .accordion-item .accordion-content p {
+	margin-bottom: 50px;
+}
+.container .accordion .accordion-item.active button,
+.container .accordion .accordion-item button:hover {
+	background-color: rgb(43, 138, 106);
+}
+.container .accordion .accordion-item.active .accordion-content {
+	display: block;
+}
+/* button icon */
+.container .accordion .accordion-item button .icon {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: block;
+}
+.container .accordion .accordion-item button .icon::before,
+.container .accordion .accordion-item button .icon::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	height: 2px;
+	width: 15px;
+	background-color: rgb(0, 0, 0);
+	transform-origin: center;
+	transition: .3s ease transform;
+}
+.container .accordion .accordion-item button .icon::after {
+	transform: rotate(90deg);
+}
+
+.container .accordion .accordion-item.active button .icon::before,
+.container .accordion .accordion-item.active button .icon::after {
+	transform: rotate(360deg);
+}
